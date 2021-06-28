@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def save_image(tensor, name='result.png'):
     inp = tensor
-    inp = inp.numpy().transpose((0, 2, 3, 1))
+    inp = inp.numpy().transpose((1, 2, 0))
 
     for j, (mean, std) in enumerate(zip((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))):
         inp[:, :, j] = inp[:, :, j] * std + mean

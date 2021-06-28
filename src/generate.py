@@ -21,8 +21,9 @@ def main(model_path, image_path, result_path):
     g = generator.Generator()
     g.load_state_dict(torch.load(model_path))
     with torch.no_grad():
+        g.eval()
         generated_image = g(image)
-        utils.save_image(generated_image, name=result_path)
+        utils.save_image(generated_image[0], name=result_path)
 
 
 if __name__ == '__main__':
