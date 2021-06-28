@@ -21,7 +21,7 @@ def save_image_batch(tensor, rows=5, wspace=0, hspace=-0.3, name='default_name.p
     count = len(inp)
 
     plt.rcParams["figure.figsize"] = (25, 25)
-    plt.show(block=True)
+    # plt.show(block=True)
 
     plt.figure(figsize=(15, 16))
 
