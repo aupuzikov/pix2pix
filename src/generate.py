@@ -13,8 +13,11 @@ def main(model_path, image_path, result_path):
         transforms.ToTensor(),
         transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
     ])
-    image = PIL.Image(image_path)
+    from PIL import Image
+    image = Image.open(image_path)
     image = transform(image)
+    image = image.unsqueeze(0)
+    # print(image.shape)
     g = generator.Generator()
     g.load_state_dict(torch.load(model_path))
     with torch.no_grad():
